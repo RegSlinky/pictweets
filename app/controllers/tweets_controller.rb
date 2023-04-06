@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  
+
   def index
     @tweets = Tweet.all
   end
@@ -10,6 +10,11 @@ class TweetsController < ApplicationController
 
   def create
     Tweet.create(tweet_params)
+  end
+
+  def destroy
+    tweet = Tweet.find(params[:id])
+    tweet.destroy
   end
 
   private
